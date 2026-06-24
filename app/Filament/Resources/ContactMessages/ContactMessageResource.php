@@ -7,6 +7,9 @@ use App\Models\ContactMessage;
 use Filament\Forms;
 use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
+use Filament\Actions\ViewAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\DeleteAction;
 use Filament\Tables;
 use Filament\Tables\Table;
 
@@ -71,9 +74,9 @@ class ContactMessageResource extends Resource
                     ->options(['unread' => 'Unread', 'read' => 'Read', 'replied' => 'Replied']),
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                ViewAction::make(),
+                EditAction::make(),
+                DeleteAction::make(),
             ])
             ->defaultSort('created_at', 'desc');
     }
